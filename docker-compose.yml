@@ -1,0 +1,39 @@
+services:
+  database:
+    container_name: db-lifesync
+    image: postgres:17-alpine
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+    environment:
+      - PGPORT=5436
+    ports:
+      - "5436:5436"
+  
+  app:
+    container_name: api-lifesync
+    image: 'lifesync-api:${TAG-latest}'
+    restart: always
+    build: .
+    volumes:
+      - ./lifesync:/code/app
+      - ./migrations:/code/migrations
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+    env_file:
+      - .env
+    ports:
+      - "9005:8000"
+
+volumes:
+  pgdata:
