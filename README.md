@@ -1,5 +1,9 @@
 # LifeSync API
 
+[![Test](https://github.com/henriquesebastiao/lifesync-api/actions/workflows/test.yml/badge.svg)](https://github.com/henriquesebastiao/lifesync-api/actions/workflows/test.yml)
+[![Static Badge](https://img.shields.io/badge/status-dev-blue)](https://github.com/henriquesebastiao/lifesync-api/)
+[![GitHub License](https://img.shields.io/github/license/henriquesebastiao/lifesync-api?color=blue)](https://github.com/henriquesebastiao/lifesync-api/blob/main/LICENSE)
+
 *Centralizando as informações importantes da vida em um único lugar.*
 
 Um sistema self-hosted e open source para acompanhar as informações importantes de diversos aspectos da vida.
