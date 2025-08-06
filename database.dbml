@@ -1,4 +1,4 @@
-Table user {
+Table users {
   id int [pk]
   email varchar [not null, unique]
   first_name varchar [not null]
@@ -16,4 +16,15 @@ Table quotes {
   pctChange float [not null]
   bid float [not null]
   ask float [not null]
+}
+
+Table accounts {
+  id int [pk]
+  name varchar [not null, unique]
+  balance float [not null, unique]
+  account_holder_id int [ref: > users.id]
+
+  indexes {
+    (account_holder_id, name) [unique]
+  }
 }
