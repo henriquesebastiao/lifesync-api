@@ -5,6 +5,7 @@ class AlreadyExists(str, Enum):
     __complement = ' already exists'
 
     EMAIL = 'Email' + __complement
+    QUOTE = 'Quote' + __complement
 
 
 class DoesNotExist(str, Enum):
@@ -12,3 +13,4 @@ class DoesNotExist(str, Enum):
 
     USER = 'User' + __complement
     ACCOUNT = 'Account' + __complement
+    QUOTE = 'Quote' + __complement
