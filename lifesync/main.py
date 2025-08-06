@@ -4,6 +4,7 @@ from fastapi.routing import APIRoute
 
 from lifesync.core.settings import get_settings
 from lifesync.routes import token, user
+from lifesync.routes.finance import quote
 
 
 def custom_generate_unique_id(route: APIRoute):
@@ -34,4 +35,5 @@ app.add_middleware(
 )
 
 app.include_router(user.router)
+app.include_router(quote.router)
 app.include_router(token.router)
