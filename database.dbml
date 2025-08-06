@@ -6,3 +6,14 @@ Table user {
   password varchar [not null]
   created_at datetime [default: `now()`]
 }
+
+Table quotes {
+  id int [pk]
+  code varchar(15) [not null, unique]
+  high float [not null]
+  low float [not null]
+  varBid float [not null]
+  pctChange float [not null]
+  bid float [not null]
+  ask float [not null]
+}
