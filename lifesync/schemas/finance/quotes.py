@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel
 
 
@@ -22,3 +24,4 @@ class QuoteUpdate(BaseModel):
 
 class QuoteSchema(QuoteCreate):
     id: int
+    updated_at: datetime

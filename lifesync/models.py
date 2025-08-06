@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Optional
+from zoneinfo import ZoneInfo
 
 from sqlalchemy import func
 from sqlalchemy.orm import Mapped, mapped_column, registry
@@ -46,3 +47,6 @@ class Quotes:
     pctChange: Mapped[float]
     bid: Mapped[float]
     ask: Mapped[float]
+    updated_at: Mapped[datetime] = mapped_column(
+        init=False, server_default=func.now(), onupdate=datetime.now(tz=ZoneInfo('UTC'))
+    )
