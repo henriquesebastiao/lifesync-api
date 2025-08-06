@@ -30,11 +30,6 @@ def create_user(schema: UserCreate, session: Session = Depends(get_session)):
     if db_user:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=AlreadyExists.EMAIL)
 
-    db_user = session.scalar(select(User).where(User.email == schema.email))
-
-    if db_user:
-        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=AlreadyExists.EMAIL)
-
     schema.password = get_password_hash(schema.password)
 
     db_user = User(**schema.model_dump())
