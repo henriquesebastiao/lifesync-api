@@ -5,6 +5,10 @@ from pydantic import BaseModel
 
 class QuoteCreate(BaseModel):
     code: str
+
+
+class QuoteBase(BaseModel):
+    code: str
     high: float
     low: float
     varBid: float
@@ -22,6 +26,6 @@ class QuoteUpdate(BaseModel):
     ask: float | None = None
 
 
-class QuoteSchema(QuoteCreate):
+class QuoteSchema(QuoteBase):
     id: int
     updated_at: datetime

@@ -23,7 +23,7 @@ class User:
 
 
 @table_registry.mapped_as_dataclass
-class Quotes:
+class Quote:
     """Tabela de cotações de moedas consultadas na API AwesomeAPI
 
     Attributes:
