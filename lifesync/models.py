@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import List, Optional
 from zoneinfo import ZoneInfo
 
-from sqlalchemy import ForeignKey, UniqueConstraint, func
+from sqlalchemy import ForeignKey, String, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column, registry, relationship
 
 table_registry = registry()
@@ -71,6 +71,7 @@ class Account:
     id: Mapped[int] = mapped_column(init=False, primary_key=True)
     name: Mapped[str]
     balance: Mapped[float]
+    color: Mapped[str] = mapped_column(String(7))
     account_holder_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
 
     user: Mapped['User'] = relationship(back_populates='accounts', lazy='immediate', init=False)
